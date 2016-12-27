@@ -1,8 +1,8 @@
 # LSRockingBar 
  仿UFO操控摇杆
-![](https://github.com/liushuangddu/LSRockingBar/UFO.webp)
+![ ](https://github.com/liushuangddu/LSRockingBar/blob/master/UFO.webp)
 
-![功能](https://github.com/liushuangddu/LSRocking/rockingBar.gif)
+![功能](https://github.com/liushuangddu/LSRockingBar/blob/master/rockingBar.gif)
 
 ## 使用/USE
 
