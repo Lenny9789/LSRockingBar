@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LSMainViewController.h
 //  LSRockingBar
 //
 //  Created by 刘爽 on 16/12/26.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface LSMainViewController : UIViewController
 
 @end
-

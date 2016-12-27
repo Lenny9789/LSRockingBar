@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		654B311C1E10CD98008831C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B311B1E10CD98008831C8 /* main.m */; };
 		654B311F1E10CD98008831C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B311E1E10CD98008831C8 /* AppDelegate.m */; };
-		654B31221E10CD98008831C8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B31211E10CD98008831C8 /* ViewController.m */; };
 		654B31251E10CD98008831C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654B31231E10CD98008831C8 /* Main.storyboard */; };
 		654B31271E10CD98008831C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654B31261E10CD98008831C8 /* Assets.xcassets */; };
 		654B312A1E10CD98008831C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654B31281E10CD98008831C8 /* LaunchScreen.storyboard */; };
 		654B31351E10CD99008831C8 /* LSRockingBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B31341E10CD99008831C8 /* LSRockingBarTests.m */; };
 		654B31401E10CD99008831C8 /* LSRockingBarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B313F1E10CD99008831C8 /* LSRockingBarUITests.m */; };
+		654B314F1E10CE63008831C8 /* LSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B314E1E10CE63008831C8 /* LSMainViewController.m */; };
+		654B31531E10D14E008831C8 /* LSRockingBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B31521E10D14E008831C8 /* LSRockingBarView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +40,6 @@
 		654B311B1E10CD98008831C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		654B311D1E10CD98008831C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		654B311E1E10CD98008831C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		654B31201E10CD98008831C8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		654B31211E10CD98008831C8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		654B31241E10CD98008831C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		654B31261E10CD98008831C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		654B31291E10CD98008831C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +50,10 @@
 		654B313B1E10CD99008831C8 /* LSRockingBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LSRockingBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		654B313F1E10CD99008831C8 /* LSRockingBarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSRockingBarUITests.m; sourceTree = "<group>"; };
 		654B31411E10CD99008831C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		654B314D1E10CE63008831C8 /* LSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSMainViewController.h; sourceTree = "<group>"; };
+		654B314E1E10CE63008831C8 /* LSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSMainViewController.m; sourceTree = "<group>"; };
+		654B31511E10D14E008831C8 /* LSRockingBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSRockingBarView.h; path = LSRockingBar/LSRockingBarView.h; sourceTree = "<group>"; };
+		654B31521E10D14E008831C8 /* LSRockingBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSRockingBarView.m; path = LSRockingBar/LSRockingBarView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +104,7 @@
 		654B31191E10CD98008831C8 /* LSRockingBar */ = {
 			isa = PBXGroup;
 			children = (
-				654B311D1E10CD98008831C8 /* AppDelegate.h */,
-				654B311E1E10CD98008831C8 /* AppDelegate.m */,
-				654B31201E10CD98008831C8 /* ViewController.h */,
-				654B31211E10CD98008831C8 /* ViewController.m */,
-				654B31231E10CD98008831C8 /* Main.storyboard */,
-				654B31261E10CD98008831C8 /* Assets.xcassets */,
-				654B31281E10CD98008831C8 /* LaunchScreen.storyboard */,
-				654B312B1E10CD98008831C8 /* Info.plist */,
+				654B31501E10CEE2008831C8 /* LSRockingBar */,
 				654B311A1E10CD98008831C8 /* Supporting Files */,
 			);
 			path = LSRockingBar;
@@ -117,7 +113,15 @@
 		654B311A1E10CD98008831C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				654B311D1E10CD98008831C8 /* AppDelegate.h */,
+				654B311E1E10CD98008831C8 /* AppDelegate.m */,
+				654B31231E10CD98008831C8 /* Main.storyboard */,
+				654B31261E10CD98008831C8 /* Assets.xcassets */,
+				654B31281E10CD98008831C8 /* LaunchScreen.storyboard */,
+				654B312B1E10CD98008831C8 /* Info.plist */,
 				654B311B1E10CD98008831C8 /* main.m */,
+				654B314D1E10CE63008831C8 /* LSMainViewController.h */,
+				654B314E1E10CE63008831C8 /* LSMainViewController.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +142,15 @@
 				654B31411E10CD99008831C8 /* Info.plist */,
 			);
 			path = LSRockingBarUITests;
+			sourceTree = "<group>";
+		};
+		654B31501E10CEE2008831C8 /* LSRockingBar */ = {
+			isa = PBXGroup;
+			children = (
+				654B31511E10D14E008831C8 /* LSRockingBarView.h */,
+				654B31521E10D14E008831C8 /* LSRockingBarView.m */,
+			);
+			name = LSRockingBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +289,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				654B31221E10CD98008831C8 /* ViewController.m in Sources */,
+				654B314F1E10CE63008831C8 /* LSMainViewController.m in Sources */,
+				654B31531E10D14E008831C8 /* LSRockingBarView.m in Sources */,
 				654B311F1E10CD98008831C8 /* AppDelegate.m in Sources */,
 				654B311C1E10CD98008831C8 /* main.m in Sources */,
 			);
