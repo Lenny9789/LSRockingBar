@@ -8,12 +8,9 @@
 
 #import "LSRockingBarView.h"
 
-@interface LSRockingBarView()
-{
-    
-}
 
-@end
+
+
 
 @implementation LSRockingBarView
 {

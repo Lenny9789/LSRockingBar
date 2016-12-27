@@ -8,7 +8,7 @@
 
 #import "LSMainViewController.h"
 #import "LSRockingBarView.h"
-
+#import "LSRockingBar-Bridging-Header.h"
 @interface LSMainViewController() <LSRockingBarViewDelegate>
 
 @end
@@ -30,6 +30,8 @@
     [self.view addSubview:rockingBarView3];
     rockingBarView3.sliderbackgroundColor = [UIColor cyanColor];
     rockingBarView3.delegate = self;
+    
+    
 }
 
 - (void)LSRockingBarViewOffsetX:(CGFloat)x offsetY:(CGFloat)y{
