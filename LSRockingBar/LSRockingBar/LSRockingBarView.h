@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-@protocol LSRockingBarViewDelegate
+@protocol LSRockingBarViewDelegate <NSObject>
 
 - (void)LSRockingBarViewOffsetX:(CGFloat)x offsetY:(CGFloat)y;
+
+- (void)LSRockingBarViewWillBackToOriginalPoint;
+
+- (void)LSRockingBarViewDidBackToOriginalPoint;
 @end
 
-@protocol LSSliderImageViewDelegate
 
-- (void)sliderImageViewOffsetX:(CGFloat)x offsetY:(CGFloat)y;
-@end
 /// 可以移动的方向/ The direction of mobile
 typedef enum : NSUInteger {
     LSRockingBarMoveDirectionHorizontal = 0,
@@ -25,7 +26,7 @@ typedef enum : NSUInteger {
 } LSRockingBarMoveDirection;
 
 
-@interface LSRockingBarView : UIView <LSSliderImageViewDelegate>
+@interface LSRockingBarView : UIView 
 
 ///滑块的大小尺寸--直径
 @property (nonatomic, assign) NSInteger sliderDiameter;
@@ -46,15 +47,4 @@ typedef enum : NSUInteger {
 
 
 
-@interface LSSliderImageView : UIImageView <UIGestureRecognizerDelegate>
-
-@property (nonatomic, assign) UIBezierPath *superBezierPath;
-
-@property (nonatomic, assign) CGRect superFrame;
-
-///视图滑动方向
-@property (nonatomic, assign) LSRockingBarMoveDirection moveDirection;
-
-@property (nonatomic, weak) id <LSSliderImageViewDelegate> delegate;
-@end
 

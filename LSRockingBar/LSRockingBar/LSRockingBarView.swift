@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol LSRockingBarViewProtocol : class {
+@objc protocol LSRockingBarViewProtocol : class,NSObjectProtocol  {
 
-    func LSRockingBarViewSliderOffset(X: CGFloat, Y: CGFloat) -> Void
+    @objc func LSRockingBarViewSliderOffset(X: CGFloat, Y: CGFloat) -> Void
 }
 
-protocol LSSliderImageViewProtocol : class {
+protocol LSSliderImageViewProtocol : class,NSObjectProtocol {
 
     func LSSliderImageViewOffset(offsetX :CGFloat, offsetY :CGFloat) ->Void
 }
@@ -65,7 +65,9 @@ class LSRockingBarView: UIView, LSSliderImageViewProtocol{
     
     func LSSliderImageViewOffset(offsetX: CGFloat, offsetY: CGFloat) {
         NSLog("offsetX:%f offsetY:%f", offsetX,offsetY)
-        delegate?.LSRockingBarViewSliderOffset(X: offsetX, Y: offsetY)
+        if (delegate?.responds(to: #selector(self.delegate?.LSRockingBarViewSliderOffset(X:Y:))))! {
+            delegate?.LSRockingBarViewSliderOffset(X: offsetX, Y: offsetY)
+        }
     }
     
     

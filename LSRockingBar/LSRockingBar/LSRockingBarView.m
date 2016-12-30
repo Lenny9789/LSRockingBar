@@ -8,47 +8,25 @@
 
 #import "LSRockingBarView.h"
 
+@protocol LSSliderImageViewDelegate<NSObject>
 
+- (void)sliderImageViewOffsetX:(CGFloat)x offsetY:(CGFloat)y;
 
+- (void)sliderImageViewWillBackToOriginalPoint;
 
+- (void)sliderImageViewDidBackToOriginalPoint;
+@end
 
-@implementation LSRockingBarView
-{
-    NSInteger minimumDiameter;
-    CGPoint centerPoint;
-    
-}
+@interface LSSliderImageView : UIImageView <UIGestureRecognizerDelegate>
 
-- (instancetype)initWithFrame:(CGRect)frame AndDirection:(LSRockingBarMoveDirection)direction{
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.backgroundColor = [UIColor whiteColor];
-        CGFloat width = frame.size.width;
-        CGFloat height = frame.size.height;
-        minimumDiameter  = width <= height ? width : height;
-//        if (self.sliderDiameter > minimumDiameter / 2) self.sliderDiameter = minimumDiameter / 3;
-        self.layer.cornerRadius = minimumDiameter / 2;
-        self.clipsToBounds = YES;
+@property (nonatomic, assign) UIBezierPath *superBezierPath;
 
-        LSSliderImageView *imageView = [[LSSliderImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-        [self addSubview:imageView];
-        imageView.delegate = self;
-        imageView.backgroundColor = self.sliderbackgroundColor;
-        imageView.image = self.sliderImage;
-        imageView.moveDirection = direction;
-        imageView.superFrame = frame;
-        imageView.center = CGPointMake(frame.size.width / 2, frame.size.height / 2);
-        imageView.backgroundColor = [UIColor redColor];
-    }
-    return self;
-}
+@property (nonatomic, assign) CGRect superFrame;
 
-- (void)sliderImageViewOffsetX:(CGFloat)x offsetY:(CGFloat)y{
-//    if ([self.delegate respondsToSelector:@selector(LSRockingBarViewOffsetX:offsetY:)]) {
-        [self.delegate LSRockingBarViewOffsetX:x offsetY:y];
-//    }
-}
+///视图滑动方向
+@property (nonatomic, assign) LSRockingBarMoveDirection moveDirection;
 
+@property (nonatomic, weak) id <LSSliderImageViewDelegate> delegate;
 @end
 
 @implementation LSSliderImageView
@@ -115,10 +93,70 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.delegate sliderImageViewWillBackToOriginalPoint];
     [UIView animateWithDuration:0.1 animations:^{
         self.center = CGPointMake(self.superFrame.size.width / 2, self.superFrame.size.height / 2);
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [self.delegate sliderImageViewDidBackToOriginalPoint];
+        }
     }];
 }
 
+
+@end
+
+@interface LSRockingBarView() <LSSliderImageViewDelegate>
+
+@end
+
+@implementation LSRockingBarView
+{
+    NSInteger minimumDiameter;
+    CGPoint centerPoint;
+    
+}
+
+- (instancetype)initWithFrame:(CGRect)frame AndDirection:(LSRockingBarMoveDirection)direction{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = [UIColor whiteColor];
+        CGFloat width = frame.size.width;
+        CGFloat height = frame.size.height;
+        minimumDiameter  = width <= height ? width : height;
+        //        if (self.sliderDiameter > minimumDiameter / 2) self.sliderDiameter = minimumDiameter / 3;
+        self.layer.cornerRadius = minimumDiameter / 2;
+        self.clipsToBounds = YES;
+        
+        LSSliderImageView *imageView = [[LSSliderImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+        [self addSubview:imageView];
+        imageView.delegate = self;
+        imageView.backgroundColor = self.sliderbackgroundColor;
+        imageView.image = self.sliderImage;
+        imageView.moveDirection = direction;
+        imageView.superFrame = frame;
+        imageView.center = CGPointMake(frame.size.width / 2, frame.size.height / 2);
+        imageView.backgroundColor = [UIColor redColor];
+    }
+    return self;
+}
+
+- (void)sliderImageViewOffsetX:(CGFloat)x offsetY:(CGFloat)y{
+    if ([self.delegate respondsToSelector:@selector(LSRockingBarViewOffsetX:offsetY:)]) {
+        [self.delegate LSRockingBarViewOffsetX:x offsetY:y];
+    }
+}
+
+- (void)sliderImageViewWillBackToOriginalPoint{
+    if ([self.delegate respondsToSelector:@selector(LSRockingBarViewWillBackToOriginalPoint)]) {
+        [self.delegate LSRockingBarViewWillBackToOriginalPoint];
+    }
+}
+
+- (void)sliderImageViewDidBackToOriginalPoint{
+    if ([self.delegate respondsToSelector:@selector(LSRockingBarViewDidBackToOriginalPoint)]) {
+        [self.delegate LSRockingBarViewDidBackToOriginalPoint];
+    }
+}
 
 @end
